@@ -1,0 +1,1 @@
+web: gunicorn Noticias.wsgi --log-file -
