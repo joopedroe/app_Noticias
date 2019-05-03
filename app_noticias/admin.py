@@ -6,4 +6,9 @@ class NoticiaAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Pessoa)
-class PessoaAdmin(admin.ModelAdmin)
+class PessoaAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Tag) 
+class TagAdmin(admin.ModelAdmin):
+    pass

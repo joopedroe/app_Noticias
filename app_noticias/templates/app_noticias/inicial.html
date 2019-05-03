@@ -1,1 +1,7 @@
-<h1>Inicio</h1>
+<h1>Notícias relacionadas a {{tag}}</h1>
+{% for noticia in noticia %}
+	<div>
+        <a href="http://localhost:8000/noticia/{{ noticia.id }}"><h2>{{noticia.titulo}}</h2></a>
+		<br>
+	</div>
+{% endfor %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>{{noticia.titulo}}</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+      <h1>{{ noticia.titulo }}</h1>
+      <p>Por <strong>{{noticia.autor}}</strong> em {{noticia.data_publicacao}}</p>
+      <p>Tags:
+          {% for tag in noticia.tags.all %}
+            <a href="{% url "encontratag" tag.nome %}" > {{ tag }}</a> {% if not forloop.last %} , {% endif %}
+    
+            {% endfor %}
+      </p>
+      <div>{{noticia.conteudo | linebreaks}} </div>
+      <a href="http://localhost:8000/"><h2>voltar</h2></a>
+  </body>
+</html>

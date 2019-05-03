@@ -1,8 +1,7 @@
 <h1>Notícias</h1>
 {% for noticia in object_list%}
 	<div>
-		<h2>{{noticia.titulo}}</h2>
-		<p>{{noticia.conteudo | linebreaksbr}}</p>
+		<a href="noticia/{{ noticia.id }}"><h2>{{noticia.titulo}}</h2></a>
 		<br>
 	</div>
 {% endfor %}
