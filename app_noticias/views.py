@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, FormView
 from django.http import HttpResponse, Http404
+from django.urls import reverse
+from .forms import *
 
 from .models import Noticia
 
@@ -38,4 +40,19 @@ def ContarNoticia(request):
     </boby>
     </html>'''.format(total)
     return HttpResponse(html)
-# Create your views here.
+
+class ContatoView(FormView):
+    template_name='app_noticias/contato.html'
+    form_class=ContatoForm
+    
+    def form_valid(self, form):
+        dados=form.clean()
+        mensagem=MensagemDeContato(nome=dados['nome'],email=dados['email'],mensagem=dados['mensagem'])
+        mensagem.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('contato_sucesso')
+
+class ContatoSucessoView(TemplateView):
+    template_name='app_noticias/contato_sucesso.html'

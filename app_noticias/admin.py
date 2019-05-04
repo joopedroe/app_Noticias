@@ -12,3 +12,7 @@ class PessoaAdmin(admin.ModelAdmin):
 @admin.register(Tag) 
 class TagAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(MensagemDeContato)
+class MensagemDeContatoAdmin(admin.ModelAdmin):
+    readonly_fields=('data',)

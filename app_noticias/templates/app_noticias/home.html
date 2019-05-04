@@ -1,7 +1,9 @@
 <h1>Notícias</h1>
 {% for noticia in object_list%}
 	<div>
-		<a href="noticia/{{ noticia.id }}"><h2>{{noticia.titulo}}</h2></a>
+		<a href="{{ noticia.id }}"><h2>{{noticia.titulo}}</h2></a>
 		<br>
 	</div>
 {% endfor %}
+<p>
+	<a href="http://localhost:8000/noticias/contato/chat"><h2>Contato</h2></a></p>
