@@ -28,7 +28,7 @@ class Noticia(models.Model):
         verbose_name = 'Notícia'
         verbose_name_plural= 'Notícias'
         
-    tags= models.ManyToManyField(Tag)
+    tags= models.ManyToManyField(Tag,blank=True,null=True)
     autor= models.ForeignKey(Pessoa, on_delete=models.CASCADE,blank=True,null=True)
     titulo=models.CharField('título', max_length=128)
     conteudo= models.TextField()

@@ -1,5 +1,6 @@
 from django import forms
-from .models import MensagemDeContato
+from django.forms import ModelForm, models
+from .models import MensagemDeContato, Noticia
 
 class ContatoForm(forms.Form):
     nome=forms.CharField(max_length=128,min_length=12)
@@ -19,3 +20,19 @@ class ContatoForm(forms.Form):
             if palavra in mensagem.lower():
                 self.add_error('mensagem','Mensagem contem palavras não permitidas')
         return dados
+
+class CadastroNoticiaForm(forms.Form):
+    titulo=forms.CharField(max_length=128)
+    conteudo=forms.CharField(widget=forms.Textarea)
+
+    def clean(self):
+        dados=super().clean()
+        titulo=dados.get('titulo')
+        conteudo=dados.get('conteudo')
+        return dados
+
+class CadastroNoticia2Form(ModelForm):
+
+    class Meta:
+        model = Noticia
+        fields =['titulo','conteudo','autor','tags']
