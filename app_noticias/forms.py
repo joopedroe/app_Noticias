@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, models
-from .models import MensagemDeContato, Noticia
+from .models import MensagemDeContato, Noticia, User
 
 class ContatoForm(forms.Form):
     nome=forms.CharField(max_length=128,min_length=12)
@@ -36,3 +36,9 @@ class CadastroNoticia2Form(ModelForm):
     class Meta:
         model = Noticia
         fields =['titulo','conteudo','autor','tags']
+
+class PaginaLogin(ModelForm):
+    
+    class Meta:
+        model=User
+        fields=['username','password']

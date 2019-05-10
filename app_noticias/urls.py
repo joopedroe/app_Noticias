@@ -10,5 +10,6 @@ urlpatterns=[
     path('contato/chat/',views.ContatoView.as_view(), name='contato'),
     path('contato_sucesso',views.ContatoSucessoView.as_view(),name='contato_sucesso'),
     path('nova/cadastro/',get_cadastroNoticia,name='cadastro_Noticia'),
+    path('login/usuario/',login_view,name='loginUsuario'),
 
 ]
