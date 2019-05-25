@@ -11,5 +11,5 @@ urlpatterns=[
     path('contato_sucesso',views.ContatoSucessoView.as_view(),name='contato_sucesso'),
     path('nova/cadastro/',get_cadastroNoticia,name='cadastro_Noticia'),
     path('login/usuario/',login_view,name='loginUsuario'),
-
+    
 ]
